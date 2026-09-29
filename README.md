@@ -16,15 +16,18 @@ CloudWeave 是個人 **Learning + Portfolio Project**。目標不是做完整電
 
 ## 目前狀態
 
-**Current Milestone：M0 — Project Foundation。**
+**Current Milestone：M2 — PostgreSQL + Docker。**
 
-現在已完成的是方向與邊界，不是可部署的平台：
+目前已完成：
 
 - Business Scenario 已定義
 - Architecture Principles 已定義
 - 第一個 Architecture Decision 已記錄：[為什麼選擇 Multi-Cloud](docs/adr/ADR-001-why-multicloud.md)
+- Order Service 的 Domain、REST API 與 lifecycle 已完成
+- PostgreSQL、Flyway、Spring Data JPA persistence 已完成
+- Order Service 與 PostgreSQL 可透過 Docker Compose 在本機啟動
 
-尚未實作應用程式、Infrastructure、Terraform 或任何 Cloud Resource。後續 Milestone 見 [roadmap](docs/roadmap.md)。高層責任切分見 [architecture overview](docs/architecture/overview.md)。
+尚未實作 AWS、GCP、Terraform 或任何 Cloud Resource。M2 操作與學習紀錄見 [M2 walkthrough](docs/learning/m2-postgresql-docker.md)，後續 Milestone 見 [roadmap](docs/roadmap.md)，高層責任切分見 [architecture overview](docs/architecture/overview.md)。
 
 ## 一句話
 

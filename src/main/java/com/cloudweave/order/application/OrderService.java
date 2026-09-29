@@ -2,6 +2,7 @@ package com.cloudweave.order.application;
 
 import com.cloudweave.order.domain.Order;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -24,12 +25,14 @@ public class OrderService {
                 .orElseThrow(() -> new OrderNotFoundException(orderId));
     }
 
+    @Transactional
     public Order confirmOrder(String orderId) {
         Order order = getOrder(orderId);
         order.confirm();
         return orderRepository.save(order);
     }
 
+    @Transactional
     public Order cancelOrder(String orderId) {
         Order order = getOrder(orderId);
         order.cancel();
