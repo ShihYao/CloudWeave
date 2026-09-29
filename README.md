@@ -16,7 +16,7 @@ CloudWeave 是個人 **Learning + Portfolio Project**。目標不是做完整電
 
 ## 目前狀態
 
-**Current Milestone：M2 — PostgreSQL + Docker。**
+**Current Milestone：M3 — AWS Foundation Design。**
 
 目前已完成：
 
@@ -27,7 +27,7 @@ CloudWeave 是個人 **Learning + Portfolio Project**。目標不是做完整電
 - PostgreSQL、Flyway、Spring Data JPA persistence 已完成
 - Order Service 與 PostgreSQL 可透過 Docker Compose 在本機啟動
 
-尚未實作 AWS、GCP、Terraform 或任何 Cloud Resource。M2 操作與學習紀錄見 [M2 walkthrough](docs/learning/m2-postgresql-docker.md)，後續 Milestone 見 [roadmap](docs/roadmap.md)，高層責任切分見 [architecture overview](docs/architecture/overview.md)。
+M0、M1、M2 已完成並 Freeze。目前進入 M3，先完成 AWS networking、security、IAM 與 traffic flow 的設計，不手動建立任何 AWS Resource。第一次 AWS 建置將在 M4 透過 Terraform 執行。M3 設計見 [M3 AWS Foundation](docs/learning/m3-aws-foundation.md)，後續 Milestone 見 [roadmap](docs/roadmap.md)，高層責任切分見 [architecture overview](docs/architecture/overview.md)。
 
 ## 一句話
 

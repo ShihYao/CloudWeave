@@ -2,7 +2,7 @@
 
 本文件描述 **目前已確認的高層責任切分**。它不是服務清單，也不選定 AWS / GCP 的具體產品。
 
-Current Milestone 是 M0。圖中「尚未實作」的路徑只表示方向，不表示系統已經跑得通。
+Current Milestone 是 M3 — AWS Foundation Design。M0、M1、M2 已完成並 Freeze；AWS 與 GCP 路徑仍未部署。M3 只完成 AWS foundation 的設計與 Design Freeze，第一次 AWS Resource 建置將在 M4 由 Terraform 執行。圖中「尚未實作」的路徑只表示方向，不表示系統已經跑得通。
 
 ## Business Scenario
 
