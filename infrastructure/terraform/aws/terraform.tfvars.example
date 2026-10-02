@@ -1,0 +1,8 @@
+# Select these explicitly after authenticating and inspecting your AWS account.
+aws_region            = "ap-southeast-2"
+availability_zone_ids = ["apse2-az1", "apse2-az3"]
+
+# Optional when AWS_PROFILE or another standard credential-chain source is used.
+# aws_profile = "cloudweave-dev"
+
+environment = "learning"

@@ -16,7 +16,7 @@ CloudWeave 是個人 **Learning + Portfolio Project**。目標不是做完整電
 
 ## 目前狀態
 
-**Current Milestone：M3 — AWS Foundation Design。**
+**Current Milestone: M4 — Terraform AWS Foundation**
 
 目前已完成：
 

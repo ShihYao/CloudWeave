@@ -22,7 +22,7 @@ CloudWeave 的主要學習重點為：
 
 Application Development 用來提供真實的 Cloud workload，但不是本專案最主要的學習目標。
 
-**Current Milestone：M3 — AWS Foundation Design。**
+**Current Milestone: M4 — Terraform AWS Foundation**
 
 | Milestone | Goal |
 |---|---|

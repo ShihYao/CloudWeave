@@ -1,0 +1,31 @@
+output "vpc_id" {
+  description = "CloudWeave VPC ID."
+  value       = aws_vpc.main.id
+}
+
+output "public_subnet_ids" {
+  description = "Public subnet IDs keyed by logical zone."
+  value       = { for key, subnet in aws_subnet.this : key => subnet.id if local.subnets[key].public }
+}
+
+output "private_subnet_ids" {
+  description = "Private subnet IDs keyed by logical zone."
+  value       = { for key, subnet in aws_subnet.this : key => subnet.id if !local.subnets[key].public }
+}
+
+output "security_group_ids" {
+  description = "Security group IDs exposed to the M5 workload layer."
+  value = {
+    ingress     = aws_security_group.ingress.id
+    application = aws_security_group.application.id
+    database    = aws_security_group.database.id
+  }
+}
+
+output "route_table_ids" {
+  description = "Foundation route table IDs."
+  value = {
+    public  = aws_route_table.public.id
+    private = { for zone, route_table in aws_route_table.private : zone => route_table.id }
+  }
+}

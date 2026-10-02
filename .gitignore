@@ -32,3 +32,14 @@ Desktop.ini
 *.tmp
 *.swp
 *~
+
+# Terraform local state and generated files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+.terraform.tfstate.lock.info
+crash.log
+crash.*.log
