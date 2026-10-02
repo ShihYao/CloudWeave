@@ -1,0 +1,45 @@
+# Maven build output
+target/
+.env
+
+# IDE metadata
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+logs/
+
+# Java crash reports
+hs_err_pid*
+replay_pid*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Terraform local state and generated files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+.terraform.tfstate.lock.info
+crash.log
+crash.*.log
