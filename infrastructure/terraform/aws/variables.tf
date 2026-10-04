@@ -32,3 +32,13 @@ variable "environment" {
     error_message = "environment must contain only lowercase letters, digits, and hyphens."
   }
 }
+
+variable "image_tag" {
+  description = "Immutable ECR image tag deployed by the M5 ECS service."
+  type        = string
+  default     = "m5-v1"
+  validation {
+    condition     = can(regex("^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$", var.image_tag))
+    error_message = "image_tag must be a valid non-empty Docker tag."
+  }
+}
