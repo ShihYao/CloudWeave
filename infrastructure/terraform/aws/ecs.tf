@@ -139,6 +139,11 @@ resource "aws_ecs_service" "order" {
     enable   = true
     rollback = true
   }
+  # M6 ownership boundary: Terraform owns service infrastructure and the
+  # baseline task definition; CI/CD owns the deployed revision pointer.
+  lifecycle {
+    ignore_changes = [task_definition]
+  }
   network_configuration {
     # 目前只有一個Task，所以它只會落在其中一個subnet／AZ
     subnets = values({ for key, subnet in aws_subnet.this : key => subnet.id if local.subnets[key].public })

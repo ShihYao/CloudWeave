@@ -34,3 +34,4 @@ output "ecr_repository_url" { value = aws_ecr_repository.order_service.repositor
 output "alb_dns_name" { value = aws_lb.order.dns_name }
 output "rds_endpoint" { value = aws_db_instance.order.endpoint }
 output "database_secret_arn" { value = aws_db_instance.order.master_user_secret[0].secret_arn }
+output "github_actions_deploy_role_arn" { value = aws_iam_role.github_deploy.arn }

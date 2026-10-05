@@ -75,3 +75,9 @@ AWS 是帳本擁有者（Single Writer）。顧客面對的下單與付款路徑
 - Database schema、API、Event schema
 - 具體 AWS / GCP service 選型
 - 回程事件的實作設計
+
+# M6 CI/CD delivery boundary
+
+GitHub Actions validates every pull request. Only `main` may obtain AWS STS credentials through the repository- and branch-scoped GitHub OIDC role. Releases use immutable Git commit SHA image tags and ECS rolling deployment.
+
+Terraform owns AWS infrastructure and the baseline task definition. CI/CD owns application image revisions and the ECS service deployment pointer as defined by [ADR-002](../adr/ADR-002-terraform-ci-cd-ecs-ownership.md).

@@ -16,9 +16,9 @@ CloudWeave 是個人 **Learning + Portfolio Project**。目標不是做完整電
 
 ## 目前狀態
 
-**Current Milestone: M5 — Terraform AWS Workload Deployment**
+**Current Milestone: M6 — CI/CD**
 
-M5 已完成 AWS learning environment 的實作與 baseline end-to-end verification；目前進入 failure experiment、debug evidence 與 Freeze 前整理階段。
+M5 已完成並 Freeze。M6 正在建立 GitHub Actions CI/CD、GitHub OIDC、immutable image delivery、ECS deployment verification 與 failure evidence。
 
 目前已完成：
 

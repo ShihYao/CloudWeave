@@ -42,3 +42,9 @@ variable "image_tag" {
     error_message = "image_tag must be a valid non-empty Docker tag."
   }
 }
+
+variable "github_repository" {
+  description = "GitHub owner/repository allowed to deploy from the main branch."
+  type        = string
+  default     = "ShihYao/CloudWeave"
+}
