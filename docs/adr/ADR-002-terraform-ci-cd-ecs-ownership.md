@@ -1,21 +1,21 @@
-# ADR-002: Terraform and CI/CD ECS ownership
+# ADR-002：Terraform 與 CI/CD 的 ECS Ownership
 
-- Status: Accepted
-- Date: 2026-10-05
+- 狀態：Accepted
+- 日期：2026-10-05
 
-## Context
+## 背景
 
-M5 Terraform manages the ECS service and a baseline task definition. M6 must deploy an immutable image tagged with the Git commit SHA without running `terraform apply` for every application release. If both systems manage the service task-definition pointer, a later Terraform apply can roll back a successful CI/CD deployment.
+M5 的 Terraform 同時管理 ECS service 與 baseline task definition。M6 必須使用 Git commit SHA 作為 immutable image tag 進行部署，但不能每次應用程式發版都執行 `terraform apply`。如果 Terraform 與 CI/CD 同時管理 service 的 task-definition pointer，後續的 Terraform apply 可能把已成功部署的版本退回舊 revision。
 
-## Decision
+## 決策
 
-Terraform owns ECR, ECS infrastructure, service configuration, IAM, networking, and the baseline task definition. GitHub Actions copies the task definition currently used by the service, changes only the Order Service image, registers a new revision, and updates the service pointer. Terraform ignores drift only for `aws_ecs_service.order.task_definition`.
+Terraform 負責 ECR、ECS infrastructure、service configuration、IAM、networking，以及 baseline task definition。GitHub Actions 複製 service 當下使用的 task definition，只替換 Order Service image，接著註冊新 revision 並更新 service pointer。Terraform 只忽略 `aws_ecs_service.order.task_definition` 的 drift。
 
-Runtime configuration changes such as CPU, memory, ports, secrets, or roles must first be introduced through Terraform as a new baseline. CI/CD is not an infrastructure pipeline.
+CPU、memory、ports、secrets 或 roles 等 runtime configuration 若需改變，必須先透過 Terraform 建立新的 baseline。CI/CD 不是 infrastructure pipeline。
 
-## Consequences
+## 影響
 
-- Application releases remain traceable from commit SHA to ECR image and ECS revision.
-- Terraform no longer rolls the service back to an older application revision.
-- Operators must deliberately establish a new Terraform baseline when task runtime configuration changes.
-- Rollback selects a known-good immutable task-definition revision; `latest` is not used.
+- Application release 可以從 commit SHA 追溯至 ECR image 與 ECS revision。
+- Terraform 不會再將 service 退回舊的 application revision。
+- Task runtime configuration 變更時，operator 必須刻意建立新的 Terraform baseline。
+- Rollback 選擇已知正常、使用 immutable image 的 task-definition revision；不使用 `latest`。
