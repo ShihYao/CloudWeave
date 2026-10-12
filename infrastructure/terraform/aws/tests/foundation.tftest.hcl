@@ -1,6 +1,13 @@
 # 使用模擬的 AWS provider，不呼叫真實 AWS API
 mock_provider "aws" {}
 
+override_data {
+  target = data.aws_iam_policy_document.ecs_task_execution_assume
+  values = {
+    json = jsonencode({ Version = "2012-10-17", Statement = [] })
+  }
+}
+
 # 產生一份測試用 plan，然後檢查裡面的值
 run "m3_foundation_contract" {
   command = plan

@@ -22,7 +22,7 @@ CloudWeave 的主要學習重點為：
 
 Application Development 用來提供真實的 Cloud workload，但不是本專案最主要的學習目標。
 
-**Current Milestone: M4 — Terraform AWS Foundation**
+**Current Milestone: M6 — CI/CD**
 
 | Milestone | Goal |
 |---|---|
@@ -48,6 +48,6 @@ Application Development 用來提供真實的 Cloud workload，但不是本專�
 
 **IMPLEMENT → VERIFY → BREAK → DEBUG → EXPLAIN → DOCUMENT → FREEZE**
 
-M3 的完成條件為 **EXPLAIN → DOCUMENT → DESIGN REVIEW → DESIGN FREEZE**。M4/M5 才執行實際的 IMPLEMENT、VERIFY、BREAK 與 DEBUG。`terraform apply` 是 AWS Resource 的首次建立途徑，不以 Console 或 AWS CLI 預先建立正式資源。`aws` CLI 可用於唯讀盤點與驗證。
+M3 的完成條件為 **EXPLAIN → DOCUMENT → DESIGN REVIEW → DESIGN FREEZE**。M4/M5/M6 執行實際的 IMPLEMENT、VERIFY、BREAK 與 DEBUG。`terraform apply` 是 AWS Resource 的首次建立途徑，不以 Console 或 AWS CLI 預先建立正式資源。`aws` CLI 可用於唯讀盤點與驗證。
 
 Roadmap 可以隨著實際學習與 Architecture Discovery 演化；已 Freeze 的 Domain、Contract 或 Architecture Decision，若未來需要改變，則應先進行 Impact Analysis，而不是無理由重寫。
